@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "BowlingTeam";
+}
+@model IndexViewModel;
+
+
+<div>
+    <h2>Bowler Contact List</h2>
+    If there is a team name 
+    @if(Model.TeamName != null) 
+    { 
+        <h3>Team: @Model.TeamName</h3>
+    }
+</div>
+<div>
+    <table class="table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th class="d-md-table-cell">First Name</th>
+                <th class="d-md-table-cell">Initial</th>
+                <th class="d-md-table-cell">Last Name</th>
+                <th class="d-md-table-cell">Address </th>
+                <th class="d-md-table-cell">City </th>
+                <th class="d-md-table-cell">State </th>
+                <th class="d-md-table-cell">Zip </th>
+                <th class="d-md-table-cell">Phone Number </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Bowlers x in Model.Bowlers)
+            {
+            <tr>
+                <td>@x.BowlerFirstName</td>
+                <td>@x.BowlerMiddleInit</td>
+                <td>@x.BowlerLastName</td>
+                <td>@x.BowlerAddress</td>
+                <td>@x.BowlerCity</td>
+                <td>@x.BowlerState</td>
+                <td>@x.BowlerZip</td>
+                <td>@x.BowlerPhoneNumber</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+<div page-info="@Model.PageNumberingInfo" page-url-teamname="@Model.TeamName"></div>
+
